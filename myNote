@@ -1,0 +1,19 @@
+
+Settings:
+
+Script parameters
+--logs_dir=logs/CelebA_WGAN_logs2/ --optimizer=RMSProp --learning_rate=5e-5 --optimizer_param=0.9 --model=1 --iterations=1e5 --mode=train
+
+Environment Variables
+LD_LIBRARY_PATH=/usr/local/cuda/lib64
+
+
+
+
+Problems:
+
+1. Please switch to tf.summary.histogram. Note that tf.summary.histogram uses the node name instead of the tag. This means that TensorFlow will automatically de-duplicate summary names based on their scope.
+WARNING:tensorflow:From /media/jg/F/20170514/models/GAN_models.py:177 in create_network.: image_summary (from tensorflow.python.ops.logging_ops) is deprecated and will be removed after 2016-11-30.
+tf.scalar_summary -> tf.summary.scalar
+
+
